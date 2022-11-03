@@ -2,10 +2,10 @@ package hacs;
 
 /**
  * Title:        HACS
- * Description:  CSE870 Homework 3:  Implementing Design Patterns
- * Copyright:    Copyright (c) 2002
- * Company:      Department of Computer Science and Engineering, Michigan State University
- * @author Ji Zhang, Wei Zhu
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
  */
 
@@ -14,30 +14,30 @@ import java.text.DateFormat;
 
 public class Assignment {
 
-  protected String AssName;
-  protected String strAssignmentFilename;
-  protected Date DueDate=new Date();
-  protected String AssSpec;
-  protected SolutionList theSolutionList=new SolutionList();
-  protected Solution SuggestSolution=new Solution();
+  protected String assignmentName;
+  protected String assignmentFileName;
+  protected Date date =new Date();
+  protected String assignmentSpecs;
+  protected SolutionList solutionList =new SolutionList();
+  protected Solution solution =new Solution();
 
 
 
   public Assignment() {
   }
 
-  public void SetDueDate(Date theDueDate){
-    this.DueDate = theDueDate;
+  public void setDueDate(Date date){
+    this.date = date;
   }
 
-  public void SetAssSpec(String theSpec){
-    this.AssSpec = theSpec;
+  public void setAssignmentSpecs(String assignmentSpecs){
+    this.assignmentSpecs = assignmentSpecs;
   }
 
-  public boolean IsOverDue(){
+  public boolean isOverDue(){
     Date today;
     today = new Date();
-    if (today.after(this.DueDate)) {
+    if (today.after(this.date)) {
       return true;
     }
     else {
@@ -45,18 +45,19 @@ public class Assignment {
     }
   }
 
-  public Solution AddSolution(){
-    Solution mySolution = new Solution();
-    return mySolution;
+  public Solution addSolution(){
+    Solution solution1 = new Solution();
+    return solution1;
   }
+  
 
-  ////add the theSolution to the Solutionlist
-  public void AddSolution(Solution theSolution)
+  ////add the solution2 to the Solutionlist
+  public void addSolution(Solution solution2)
   {
-    theSolutionList.add(theSolution);
+    solutionList.add(solution2);
   }
 
-  public void SubmitSolution(){
+  public void submitSolution(){
   }
 
   public void getSolutionList(){
@@ -64,35 +65,35 @@ public class Assignment {
 
   /* return the solution of the give name
   */
-  public Solution getSolution(String studentname)
+  public Solution getSolution(String studentName)
   {
-    SolutionIterator Iterator=(SolutionIterator)theSolutionList.iterator();
-    return (Solution)Iterator.next(studentname);
+    SolutionIterator solutionIterator=(SolutionIterator) solutionList.iterator();
+    return (Solution)solutionIterator.next(studentName);
   }
 
   public Solution getSugSolution(){
-    return SuggestSolution;
+    return solution;
   }
 
-  public SolutionIterator GetSolutionIterator()
+  public SolutionIterator getSolutionIterator()
   {
-    SolutionIterator theSolutionIterator=new SolutionIterator(theSolutionList);
-    return theSolutionIterator;
+    SolutionIterator solutionIterator=new SolutionIterator(solutionList);
+    return solutionIterator;
   }
 
   public String toString()
   {
-    return AssName;
+    return assignmentName;
   }
 
   public String getDueDateString()
   {
     DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.SHORT);
-    return  dateFormat.format(DueDate);
+    return  dateFormat.format(date);
   }
 
-  public void accept(NodeVisitor visitor)
+  public void accept(NodeVisitor nodeVisitor)
   {
-    visitor.visitAssignment(this);
+    nodeVisitor.visitAssignment(this);
   }
 }

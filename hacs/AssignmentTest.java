@@ -1,63 +1,79 @@
 package hacs;
 
+import org.junit.jupiter.api.Test;
+
+import java.text.DateFormat;
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
+ * Title:        HACS
+ * Description:  SER515 : Unit Test and Reuse
  * @author Aaditya Muley
  * ASUrite : amuley2
  * ASU ID : 1225526185
+ * @version 1.0
  */
 class AssignmentTest {
-
-    @org.junit.jupiter.api.Test
+    
+    Assignment assignment = new Assignment();
+    @Test
     void setDueDate() {
+        Date date = new Date();
+        assignment.setDueDate(date);
+        assertEquals(date, assignment.date);
     }
-
-    @org.junit.jupiter.api.Test
-    void setAssSpec() {
+    
+    @Test
+    void setAssignmentSpecs() {
+        String test = "Test Specs";
+        assignment.setAssignmentSpecs(test);
+        assertEquals(test, assignment.assignmentSpecs);
     }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void isOverDue() {
+        assertEquals(true, assignment.isOverDue());
     }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void addSolution() {
+        Solution testSolution = new Solution();
+        assignment.addSolution(testSolution);
+        assertEquals(true, assignment.solutionList.contains(testSolution));
     }
-
-    @org.junit.jupiter.api.Test
-    void testAddSolution() {
-    }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void submitSolution() {
     }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void getSolutionList() {
     }
-
-    @org.junit.jupiter.api.Test
-    void getSolution() {
-    }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void getSugSolution() {
+        assertNotEquals(new Solution(), assignment.getSugSolution());
     }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void getSolutionIterator() {
+        assertNotEquals(new SolutionIterator(), assignment.getSolutionIterator());
     }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void testToString() {
+        assertEquals(assignment.assignmentName, assignment.toString());
     }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void getDueDateString() {
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+        assertEquals(dateFormat.format(assignment.date), assignment.getDueDateString());
     }
-
-    @org.junit.jupiter.api.Test
+    
+    @Test
     void accept() {
     }
 }

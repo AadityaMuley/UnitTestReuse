@@ -3,7 +3,6 @@ package hacs;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 import java.text.DateFormat;
 
 /**
@@ -105,24 +104,24 @@ public class InstructorAssignmentMenu extends AssignmentMenu
   {
     theAssignment=assignment;
     Solution theSolution;
-    tbAssignmentName.setText(theAssignment.AssName );
+    tbAssignmentName.setText(theAssignment.assignmentName);
 
     DateFormat theDateFormat=DateFormat.getDateInstance(DateFormat.SHORT );
-    tbDueDate.setText(theDateFormat.format(theAssignment.DueDate));
-    tbSuggestedSolution.setText(theAssignment.SuggestSolution.SolutionFileName );
+    tbDueDate.setText(theDateFormat.format(theAssignment.date));
+    tbSuggestedSolution.setText(theAssignment.solution.SolutionFileName );
     refreshSolutionList();
     show();
   }
 
   void buttonClose_actionPerformed(ActionEvent e)
   {
-    theAssignment.AssName = tbAssignmentName.getText() ;
+    theAssignment.assignmentName = tbAssignmentName.getText() ;
     DateFormat tempDateFormat=DateFormat.getDateInstance(DateFormat.SHORT );
     try
     {
-      theAssignment.DueDate=tempDateFormat.parse(tbDueDate.getText() );
+      theAssignment.date =tempDateFormat.parse(tbDueDate.getText() );
     }catch (Exception ee){};
-    theAssignment.SuggestSolution.SolutionFileName =tbSuggestedSolution.getText() ;
+    theAssignment.solution.SolutionFileName =tbSuggestedSolution.getText() ;
     hide();
   }
 
@@ -138,7 +137,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu
 
   void buttonReport_actionPerformed(ActionEvent e)
   {
-    SolutionIterator iter=new SolutionIterator(theAssignment.theSolutionList );
+    SolutionIterator iter=new SolutionIterator(theAssignment.solutionList);
     while(iter.hasNext() )
     {
       Solution asolution=(Solution)iter.next();
@@ -149,7 +148,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu
   private void refreshSolutionList()
   {
     CombSolutionList.removeAllItems() ;
-    SolutionIterator SolIter=new SolutionIterator(theAssignment.theSolutionList );
+    SolutionIterator SolIter=new SolutionIterator(theAssignment.solutionList);
     while(SolIter.hasNext() )
     {
       theSolution=(Solution)SolIter.next();

@@ -87,7 +87,7 @@ public class Facade {
 	void ReportSolutions(Assignment theAssignment) {
 		Solution theSolution;
 		SolutionIterator theSolutionIterator;
-		theSolutionIterator = theAssignment.GetSolutionIterator();
+		theSolutionIterator = theAssignment.getSolutionIterator();
 		theSolution = (Solution) theSolutionIterator.next();
 		while (theSolution != null) {
 			theSolution.setReported(true);
@@ -98,7 +98,7 @@ public class Facade {
 
 //functions for StudentAssignmentMenu
 	void SubmitSolution(Assignment theAssignment, Solution theSolution) {
-		theAssignment.AddSolution(theSolution);
+		theAssignment.addSolution(theSolution);
 	}
 
 //////////
@@ -123,7 +123,7 @@ public class Facade {
 	 */
 	void CreateCourseList() {
 		theCourseList = new ClassCourseList();
-		theCourseList.InitializeFromFile("CourseInfo.txt");
+		theCourseList.InitializeFromFile("./hacs/CourseInfo.txt");
 	}
 
 	/*
@@ -134,7 +134,7 @@ public class Facade {
 	void AttachCourseToUser() {
 		BufferedReader file;
 		try {
-			file = new BufferedReader(new FileReader("UserCourse.txt"));
+			file = new BufferedReader(new FileReader("./hacs/UserCourse.txt"));
 			String aline, strUserName, strCourseName;
 			while ((aline = file.readLine()) != null) // not the EOF
 			{
