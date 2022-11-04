@@ -20,7 +20,7 @@ class ClassCourseListTest extends ArrayList<Course> {
     ClassCourseList classCourseList = new ClassCourseList();
     @Test
     void initializeFromFile() {
-        classCourseList.initializeFromFile("./hacs/CourseInfo.txt");
+        classCourseList.initializeFromFile("./hacs/data/CourseInfo.txt");
         assertEquals(true, classCourseList.courseInfoSet);
     }
     

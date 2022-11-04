@@ -22,7 +22,7 @@ public class Hacs {
 		UserInfoItem userinfoitem = new UserInfoItem();
 		theFacade.createCourseList();
 		while (true) {
-			boolean bExit = false;
+			boolean bExit;
 			bExit = theFacade.login(userinfoitem);
 			if (bExit)
 				break;

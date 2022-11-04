@@ -121,7 +121,7 @@ public class Facade {
 	 */
 	void createCourseList() {
 		classCourseList = new ClassCourseList();
-		classCourseList.initializeFromFile("./hacs/CourseInfo.txt");
+		classCourseList.initializeFromFile("./hacs/data/CourseInfo.txt");
 	}
 
 	/*
@@ -132,7 +132,7 @@ public class Facade {
 	void attachCourseToUser() {
 		BufferedReader file;
 		try {
-			file = new BufferedReader(new FileReader("./hacs/UserCourse.txt"));
+			file = new BufferedReader(new FileReader("./hacs/data/UserCourse.txt"));
 			String aline, strUserName, strCourseName;
 			while ((aline = file.readLine()) != null) // not the EOF
 			{

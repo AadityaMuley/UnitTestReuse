@@ -89,11 +89,11 @@ public class Login extends JDialog {
 			if (StudentRadio.isSelected() == true)//// student
 			{
 				UserType = USER_TYPE.Student; /// 0 for student
-				file = new BufferedReader(new FileReader("./hacs/StuInfo.txt"));
+				file = new BufferedReader(new FileReader("./hacs/data/StuInfo.txt"));
 			} else// instructor
 			{
 				UserType = USER_TYPE.Instructor; // 1 for instructor
-				file = new BufferedReader(new FileReader("./hacs/InsInfor.txt"));
+				file = new BufferedReader(new FileReader("./hacs/data/InsInfor.txt"));
 			}
 			UserBox = UserNameText.getText();
 			String PasswordBox = new String(PasswordText.getPassword());
