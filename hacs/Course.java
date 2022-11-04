@@ -4,40 +4,37 @@ import java.util.*;
 
 /**
  * Title:        HACS
- * Description:  CSE870 Homework 3:  Implementing Design Patterns
- * Copyright:    Copyright (c) 2002
- * Company:      Department of Computer Science and Engineering, Michigan State University
- * @author Ji Zhang, Wei Zhu
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
- * @author mjfindler
- * @version 2.0 
- * Update to Java 8
  */
 
 public class Course {
-  String CourseName;
+  String courseName;
   public ArrayList<Assignment> assignmentList=new ArrayList<Assignment>();
-  int NumOfAss;
-  int CourseLevel;
+  int numOfAssignments;
+  int courseLevel;
 
 
-  public Course(String strCourse, int theLevel) {
-    this.CourseName = strCourse;
+  public Course(String courseName, int level) {
+    this.courseName = courseName;
 
    //0 HighLeve presentation    1  LowLevel Experiment
-    this.CourseLevel = theLevel;
+    this.courseLevel = level;
    // this.AssList = NULL;
-    this.NumOfAss = 0;
+    this.numOfAssignments = 0;
   }
   
-  public void AddAssignment(Assignment newAss)
+  public void addAssignment(Assignment newAssignment)
   {
-    assignmentList.add(newAss);
+    assignmentList.add(newAssignment);
   }
   
   public String toString()
   {
-    return CourseName;
+    return courseName;
   }
   
   void accept(NodeVisitor visitor)

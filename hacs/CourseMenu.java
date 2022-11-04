@@ -8,10 +8,10 @@ import java.util.Iterator;
 
 /**
  * Title:        HACS
- * Description:
- * Copyright:    Copyright (c) 2002
- * Company:      msu
- * @author Zhang ji Zhu Wei
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
  */
 
@@ -90,13 +90,13 @@ abstract public class CourseMenu extends JDialog
 
   void AssignmentAddButton_actionPerformed(ActionEvent e)
   {
-    Hacs.theFacade.AddAssignment(theCourse);
+    Hacs.theFacade.addAssignment(theCourse);
     refresh();
   }
   void AssignmentViewButton_actionPerformed(ActionEvent e)
   {
     Assignment theAss=(Assignment)AssignmentCombox.getSelectedItem() ;
-    Hacs.theFacade.ViewAssignment(theAss);
+    Hacs.theFacade.viewAssignment(theAss);
   }
   void refresh()
   {

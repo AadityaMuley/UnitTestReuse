@@ -1,9 +1,11 @@
 package hacs;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
+ * Title:        HACS
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
  */
 

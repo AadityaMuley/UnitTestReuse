@@ -4,10 +4,10 @@ import java.util.Iterator;
 
 /**
  * Title:        HACS
- * Description:
- * Copyright:    Copyright (c) 2002
- * Company:      msu
- * @author Zhang ji Zhu Wei
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
  */
 
@@ -16,27 +16,27 @@ public class SolutionIterator implements Iterator
   SolutionList solutionlist;
 
   ///  CurrentSolutionNumber: point to the location before the first element
-  int CurrentSolutionNumber=-1;
+  int currentSolutionNumber = -1;
 
   public SolutionIterator()
   {
   }
-  public SolutionIterator(SolutionList thesolutionlist)
+  public SolutionIterator(SolutionList solutionList)
   {
-    solutionlist=thesolutionlist;
-    MoveToHead();
+    solutionlist = solutionList;
+    moveToHead();
   }
 
-  public void MoveToHead()
+  public void moveToHead()
   {
   ///  CurrentSolutionNumber: point to the location before the first element
-    CurrentSolutionNumber=-1;
+    currentSolutionNumber = -1;
   }
 
   public boolean hasNext()
   {
     /**@todo: Implement this java.util.Iterator method*/
-    if (CurrentSolutionNumber>=solutionlist.size()-1)
+    if (currentSolutionNumber >= solutionlist.size()-1)
       return false;
     else
       return true;
@@ -47,8 +47,8 @@ public class SolutionIterator implements Iterator
     /**@todo: Implement this java.util.Iterator method*/
     if (hasNext()==true)
     {
-      CurrentSolutionNumber ++;
-      return solutionlist.get(CurrentSolutionNumber);
+      currentSolutionNumber++;
+      return solutionlist.get(currentSolutionNumber);
     }
     else
     {
@@ -76,7 +76,7 @@ public class SolutionIterator implements Iterator
   public void remove()
   {
     /**@todo: Implement this java.util.Iterator method*/
-    solutionlist.remove(CurrentSolutionNumber);
+    solutionlist.remove(currentSolutionNumber);
 //    throw new java.lang.UnsupportedOperationException("Method remove() not yet implemented.");
   }
 

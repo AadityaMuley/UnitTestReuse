@@ -3,27 +3,27 @@ package hacs;
 import java.util.*;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
+ * Title:        HACS
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
- * @author mjfindler
- * @version 2.0 use <e> notation
  */
 
 public class ListIterator implements Iterator<Object> {
-	ArrayList<Object> theList;
-	int CurrentNumber = -1;
+	ArrayList<Object> list;
+	int currentNumber = -1;
 
 	public ListIterator() {
 	}
 
 	public ListIterator(ArrayList<Object> list) {
-		theList = list;
+		this.list = list;
 	}
 
 	public boolean hasNext() {
-		if (CurrentNumber >= theList.size() - 1)
+		if (currentNumber >= list.size() - 1)
 			return false;
 		else
 			return true;
@@ -31,14 +31,14 @@ public class ListIterator implements Iterator<Object> {
 
 	public Object next() {
 		if (hasNext() == true) {
-			CurrentNumber++;
-			return theList.get(CurrentNumber);
+			currentNumber++;
+			return list.get(currentNumber);
 		} else {
 			return null;
 		}
 	}
 
 	public void remove() {
-		theList.remove(CurrentNumber);
+		list.remove(currentNumber);
 	}
 }

@@ -4,14 +4,12 @@ import java.util.Iterator;
 import java.util.*;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
+ * Title:        HACS
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
- * @author mjfindler
- * @version 2.0 
- * 
- * update to Java 8
  */
 
 /*
@@ -23,17 +21,17 @@ import java.util.*;
 
 public class ReminderVisitor extends NodeVisitor {
 
-	Reminder m_Reminder;
+	Reminder reminder;
 
 	public ReminderVisitor() {
 	}
 
 	public ReminderVisitor(Reminder reminder) {
-		m_Reminder = reminder;
+		this.reminder = reminder;
 	}
 
 	public void visitFacade(Facade facade) {
-		CourseIterator courseList = new CourseIterator(facade.theCourseList);
+		CourseIterator courseList = new CourseIterator(facade.classCourseList);
 		while (courseList.hasNext()) {
 			Course course = (Course) courseList.next();
 			course.accept(this);
@@ -57,12 +55,12 @@ public class ReminderVisitor extends NodeVisitor {
 		int nDueDate = calendar.get(Calendar.DAY_OF_YEAR);
 		if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) /// upcoming
 		{
-			m_Reminder.listUpcoming.add("today is " + today.toString() + " " + assignment.assignmentName + " Due Date is "
+			reminder.listUpcoming.add("today is " + today.toString() + " " + assignment.assignmentName + " Due Date is "
 					+ assignment.getDueDateString());
 		}
 		if (nDueDate < ntoday) {
 			// put to the
-			m_Reminder.listOverdue.add(assignment.assignmentName + " Due Date is " + assignment.getDueDateString());
+			reminder.listOverdue.add(assignment.assignmentName + " Due Date is " + assignment.getDueDateString());
 		}
 
 	}

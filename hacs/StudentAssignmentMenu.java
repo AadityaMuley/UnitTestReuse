@@ -6,9 +6,11 @@ import java.awt.event.*;
 import java.util.*;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
+ * Title:        HACS
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
  */
 
@@ -98,7 +100,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	public void ShowMenu(Assignment assignment, Person thePerson) {
 		theAssignment = assignment;
 		SolutionIterator theIter = theAssignment.getSolutionIterator();
-		theSolution = (Solution) theIter.next(thePerson.UserName);
+		theSolution = (Solution) theIter.next(thePerson.userName);
 		if (theSolution == null) {
 			tbSolution.setText("");
 			lGrade.setText("-1");
@@ -119,7 +121,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 				theSolution = new Solution();
 				theAssignment.addSolution(theSolution);
 			}
-			theSolution.theAuthor = thePerson.UserName;
+			theSolution.theAuthor = thePerson.userName;
 			theSolution.SolutionFileName = tbSolution.getText();
 			theSolution.theSubmitData = new Date();
 		}

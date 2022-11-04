@@ -3,71 +3,71 @@ package hacs;
 import java.util.*;
 
 /**
- * Title: HACS Description: CSE870 Homework 3: Implementing Design Patterns
- * Copyright: Copyright (c) 2002 Company: Department of Computer Science and
- * Engineering, Michigan State University
- * 
- * @author Ji Zhang, Wei Zhu
+ * Title:        HACS
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
  */
 
 abstract public class Person {
 	int type = 0; // type=0 : student, type=1 instructor
-	String UserName;
-	ClassCourseList CourseList;
-	CourseMenu theCourseMenu;
-	Course CurrentCourse;
-	Assignment CurrentAssignment;
+	String userName;
+	ClassCourseList classCourseList;
+	CourseMenu courseMenu;
+	Course currentCourse;
+	Assignment currentAssignment;
 
 	public Person() {
-		CourseList = new ClassCourseList();
+		classCourseList = new ClassCourseList();
 	}
 
-	abstract public CourseMenu CreateCourseMenu(Course theCourse, int theLevel);
+	abstract public CourseMenu createCourseMenu(Course theCourse, int theLevel);
 
 	public void showAddButton() {
-		theCourseMenu.ShowAddButtons();
+		courseMenu.ShowAddButtons();
 	}
 
 	public void showViewButtons() {
-		theCourseMenu.ShowViewButtons();
+		courseMenu.ShowViewButtons();
 	}
 
 	public void showComboxes() {
-		theCourseMenu.ShowComboxes();
+		courseMenu.ShowComboxes();
 	}
 
 	public void showRadios() {
-		theCourseMenu.ShowRadios();
+		courseMenu.ShowRadios();
 	}
 
 	public void show() {
-		theCourseMenu.show();
+		courseMenu.show();
 	}
 
 	public boolean ifLogout() {
-		return theCourseMenu.ifLogout();
+		return courseMenu.ifLogout();
 	}
 
 	// show the assignment list
-	public boolean ShowMenu() {
+	public boolean showMenu() {
 		// create a iterator for the assignment list
-//    Iterator theIter=new ListIterator(CurrentCourse.AssList );
-		Iterator theIter = CurrentCourse.assignmentList.iterator();
-		theCourseMenu.theCourse = CurrentCourse;
-		Assignment theAssignment;
-		while (theIter.hasNext()) {
-			theAssignment = (Assignment) theIter.next();
-			theCourseMenu.AssignmentCombox.addItem(theAssignment);
+//    Iterator iterator=new ListIterator(CurrentCourse.AssList );
+		Iterator iterator = currentCourse.assignmentList.iterator();
+		courseMenu.theCourse = currentCourse;
+		Assignment assignment;
+		while (iterator.hasNext()) {
+			assignment = (Assignment) iterator.next();
+			courseMenu.AssignmentCombox.addItem(assignment);
 		}
 		return false;
 	}
 
-	public ClassCourseList GetCourseList() {
-		return CourseList;
+	public ClassCourseList getCourseList() {
+		return classCourseList;
 	}
 
-	public void AddCourse(Course theCourse) {
-		CourseList.add(theCourse);
+	public void addCourse(Course theCourse) {
+		classCourseList.add(theCourse);
 	}
 }

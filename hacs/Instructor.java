@@ -1,9 +1,11 @@
 package hacs;
 
 /**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author Zhang ji Zhu Wei
+ * Title:        HACS
+ * Description:  SER515 : Unit Test and Reuse
+ * @author Aaditya Muley
+ * ASUrite : amuley2
+ * ASU ID : 1225526185
  * @version 1.0
  */
 
@@ -12,19 +14,19 @@ public class Instructor extends Person {
 		type = 1;// type=1 :instructor
 	}
 
-	public CourseMenu CreateCourseMenu(Course theCourse, int theLevel) {
-		if (theLevel == 0)/// 0: Highlevel defined in CourseSeletDlg.
+	public CourseMenu createCourseMenu(Course course, int level) {
+		if (level == 0)/// 0: Highlevel defined in CourseSeletDlg.
 		{
-			theCourseMenu = new HighLevelCourseMenu();
+			courseMenu = new HighLevelCourseMenu();
 		} else/// 1: LowLevel
 		{
-			theCourseMenu = new HighLevelCourseMenu();
+			courseMenu = new HighLevelCourseMenu();
 		}
-		return theCourseMenu;
+		return courseMenu;
 	}
 
-	public boolean ShowMenu() {
-		super.ShowMenu();
+	public boolean showMenu() {
+		super.showMenu();
 		showAddButton();
 		showViewButtons();
 		showComboxes();

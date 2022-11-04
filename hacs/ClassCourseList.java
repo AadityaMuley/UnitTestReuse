@@ -13,34 +13,35 @@ import java.io.*;
  */
 
 public class ClassCourseList extends ArrayList<Course> {
+	
+	boolean courseInfoSet = false;
 
 	public ClassCourseList() {
 	}
 
 	//// initialize the list by reading from the file.
-	void InitializeFromFile(String theFileName) {
+	void initializeFromFile(String fileName) {
 		try {
 			BufferedReader file;
-			String strCourseName = null;
+			String courseName = null;
 			file = new BufferedReader(new FileReader("./hacs/CourseInfo.txt"));
-			while ((strCourseName = file.readLine()) != null) {
-				Course theCourse;
-				theCourse = new Course(strCourseName, 0);
-//      theCourse.CourseName= strCourseName;
-				add(theCourse);
+			while ((courseName = file.readLine()) != null) {
+				Course course = new Course(courseName, 0);
+//      course.CourseName= courseName;
+				add(course);
 			}
+			courseInfoSet = true;
 		} catch (Exception ee) {
 			;
 		}
 	}
 
-	Course FindCourseByCourseName(String CourseName) {
-		int nCourseCount = size();
-		for (int i = 0; i < nCourseCount; i++) {
-			Course theCourse;
-			theCourse = (Course) get(i);
-			if (theCourse.CourseName.compareTo(CourseName) == 0)
-				return theCourse;
+	Course findCourseByCourseName(String courseName) {
+		int courseCount = size();
+		for (int i = 0; i < courseCount; i++) {
+			Course course = (Course) get(i);
+			if (course.courseName.compareTo(courseName) == 0)
+				return course;
 		}
 		return null;
 	}
